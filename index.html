@@ -3,88 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jom Kenal &amp; Salin - Pengamatan Penglihatan KM Tahun 3</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Pengamatan Penglihatan – Tahun 3 KSSRPK KS</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="sky" aria-hidden="true">
-  <span class="cloud c1">☁️</span><span class="cloud c2">☁️</span><span class="cloud c3">☁️</span>
-</div>
+<span class="cloud c1" aria-hidden="true">☁️</span><span class="cloud c2" aria-hidden="true">☁️</span>
 
-<header class="top">
-  <button id="homeBtn" class="btn round" aria-label="Kembali ke menu utama">🏠</button>
-  <h1>Jom Kenal &amp; Salin!</h1>
-  <div class="score" aria-live="polite">⭐ <b id="totalStars">0</b></div>
-</header>
-
-<main id="app">
-  <section id="home" class="screen active">
-    <div class="hero">
-      <div class="mascot" aria-hidden="true">🦉</div>
-      <div class="bubble">Hai kawan! Mari kenal bentuk, huruf, nombor dan perkataan. Pilih aras dahulu.</div>
-    </div>
-
-    <h2 class="label">Pilih aras</h2>
-    <div class="levels" id="levels">
-      <button class="lvl" data-l="1" aria-pressed="true">🌱 Aras 1<small>Mudah</small></button>
-      <button class="lvl" data-l="2" aria-pressed="false">🌿 Aras 2<small>Sederhana</small></button>
-      <button class="lvl" data-l="3" aria-pressed="false">🌳 Aras 3<small>Sukar</small></button>
-    </div>
-
-    <h2 class="label">Pilih aktiviti</h2>
-    <div class="grid" id="activityGrid"></div>
-
-    <details class="dskp">
-      <summary>📘 Maklumat DSKP (untuk guru)</summary>
-      <dl>
-        <dt>Tajuk</dt>
-        <dd>3.0 Pengamatan<br>3.2 Pengamatan penglihatan<br><small>Mata Pelajaran Pengurusan Kehidupan, Komponen Kemahiran Manipulatif Tahun 3</small></dd>
-        <dt>Standard Kandungan / Standard Pembelajaran</dt>
-        <dd>3.2.1 Mengenal bentuk, huruf, nombor, perkataan atau ayat.<br>
-            3.2.2 Menyalin semula sesuatu bentuk, huruf, nombor, perkataan atau ayat.</dd>
-        <dt>Objektif (murid boleh...)</dt>
-        <dd>1. Mengenal bentuk, huruf, nombor, perkataan atau ayat secara berpandu.<br>
-            2. Mengingat kembali dan menyalin bentuk, huruf, nombor, perkataan atau ayat.</dd>
-        <dt>Aras kesukaran</dt>
-        <dd>Aras 1 (Mudah): objektif 1, pilihan sedikit, model sentiasa kelihatan.<br>
-            Aras 2 (Sederhana): objektif 1 dan 2, pilihan dan item bertambah, menyalin dengan model kelihatan.<br>
-            Aras 3 (Sukar): objektif 2, murid mengingat kembali kerana model disembunyikan, dan item paling banyak.</dd>
-      </dl>
-    </details>
-  </section>
-
-  <section id="play" class="screen">
-    <div class="playhead">
-      <h2 id="actTitle"></h2>
-      <div class="bar" role="progressbar" aria-label="Kemajuan"><div class="fill" id="progress"></div></div>
-    </div>
-    <div class="instruction">
-      <button id="speak" class="btn round sun" aria-label="Dengar arahan">🔊</button>
-      <p id="instr"></p>
-    </div>
-    <div id="stage" class="stage"></div>
-  </section>
+<!-- SKRIN UTAMA -->
+<main id="home" class="view">
+  <h1>👀 Mari Bermain & Belajar!</h1>
+  <details class="info" open>
+    <summary>📘 Maklumat DSKP</summary>
+    <dl>
+      <dt>Tajuk</dt>
+      <dd>3.0 Pengamatan – 3.2 Pengamatan Penglihatan<br><small>Pengurusan Kehidupan · Kemahiran Manipulatif · Tahun 3 (KSSRPK KS)</small></dd>
+      <dt>Standard Kandungan</dt>
+      <dd>3.2 Pengamatan penglihatan – murid dibimbing untuk:<br>
+        3.2.1 Mengenal bentuk, huruf, nombor, perkataan atau ayat.<br>
+        3.2.2 Menyalin semula sesuatu bentuk, huruf, nombor, perkataan atau ayat.</dd>
+      <dt>Objektif (murid boleh…)</dt>
+      <dd><ol>
+        <li>Mengenal bentuk, huruf, nombor, perkataan atau ayat secara berpandu.</li>
+        <li>Mengingat kembali dan menyalin bentuk, huruf, nombor, perkataan atau ayat.</li>
+      </ol></dd>
+      <dt>Aras Kesukaran</dt>
+      <dd>⭐ Aras 1 – bentuk, huruf &amp; nombor (berpandu)<br>⭐⭐ Aras 2 – perkataan<br>⭐⭐⭐ Aras 3 – ayat &amp; mengingat kembali</dd>
+    </dl>
+  </details>
+  <h2>Pilih aktiviti</h2>
+  <div id="menu" class="menu"></div>
 </main>
 
-<div id="toast" class="toast" role="status"></div>
+<!-- PILIH ARAS -->
+<section id="levels" class="view" hidden>
+  <button class="btn small" style="--b:#3aa0ff" onclick="show('home')">⬅ Menu</button>
+  <h1 id="ltitle"></h1>
+  <h2>Pilih aras</h2>
+  <div class="lv">
+    <button class="btn big" style="--b:#2ec4a6" data-l="0">⭐<br>Aras 1<br><small>Mudah</small></button>
+    <button class="btn big" style="--b:#ffa62b" data-l="1">⭐⭐<br>Aras 2<br><small>Sederhana</small></button>
+    <button class="btn big" style="--b:#ff6b6b" data-l="2">⭐⭐⭐<br>Aras 3<br><small>Mencabar</small></button>
+  </div>
+</section>
 
-<div id="modal" class="modal" hidden>
-  <div class="mbox">
+<!-- PERMAINAN -->
+<section id="game" class="view" hidden>
+  <div class="top">
+    <button class="btn small" style="--b:#3aa0ff" onclick="show('home')">⬅ Menu</button>
+    <h2 id="gname"></h2>
+    <button class="btn small" style="--b:#ffa62b" onclick="start(lvl)">🔄</button>
+  </div>
+  <div class="track"><div id="bar"></div></div>
+  <div id="stage" class="stage"></div>
+</section>
+
+<!-- KEMENANGAN -->
+<div id="win" hidden>
+  <canvas id="fw"></canvas>
+  <div class="wcard" role="dialog" aria-label="Tahniah">
     <div class="trophy">🏆</div>
-    <h2>Hebat! Tahniah!</h2>
-    <div class="mstars" id="mStars"></div>
-    <div class="macts">
-      <button id="again" class="btn">🔁 Main lagi</button>
-      <button id="next" class="btn mint">⬆️ Aras seterusnya</button>
-      <button id="menu" class="btn sky">🏠 Menu</button>
+    <h1>Tahniah! Hebat!</h1>
+    <div id="stars" class="stars"></div>
+    <div class="wbtn">
+      <button id="again" class="btn big" style="--b:#2ec4a6">🔄 Main Semula</button>
+      <button id="tomenu" class="btn big" style="--b:#6c4bd6">🏠 Menu</button>
     </div>
   </div>
 </div>
 
-<canvas id="confetti" aria-hidden="true"></canvas>
 <script src="script.js"></script>
 </body>
 </html>
